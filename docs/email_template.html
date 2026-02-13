@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #0a0a0a;
+            border: 1px solid #1e90ff40;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(30, 144, 255, 0.1);
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #1e90ff;
+            font-size: 28px;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        .content {
+            padding: 0 10px;
+        }
+
+        .greeting {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .message-body {
+            color: #cccccc;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .highlight {
+            color: #1e90ff;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #1e90ff40, transparent);
+            margin: 30px 0;
+        }
+
+        .footer {
+            font-size: 12px;
+            color: #666666;
+            margin-top: 40px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #1e90ff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Message Received</h1>
+        </div>
+
+        <div class="content">
+            <div class="greeting">Hi {{user_name}},</div>
+
+            <p class="message-body">
+                Thank you for reaching out! I typically reply within 24 hours.
+            </p>
+
+            <p class="message-body">
+                I have received your message regarding:
+                <br>
+                <em style="color: #666666;">"{{message}}"</em>
+            </p>
+
+            <div class="divider"></div>
+
+            <p class="message-body">
+                In the meantime, feel free to check out my latest work on my portfolio or connect with me on social
+                media.
+            </p>
+
+            <div class="social-links">
+                <a href="https://rickfrancis.vercel.app">Portfolio</a> •
+                <a href="https://github.com/crux091">GitHub</a> •
+                <a href="https://www.linkedin.com/in/rick-francis-cruz/">LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2026 Rick Francis Cruz. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+
+</html>
