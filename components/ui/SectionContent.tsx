@@ -67,7 +67,7 @@ const SectionContent = memo(function SectionContent({
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-        className="relative w-full max-w-4xl max-h-[85vh] bg-gradient-to-br from-slate-900/95 via-blue-900/80 to-slate-900/95 border border-blue-400/30 rounded-2xl overflow-hidden shadow-2xl shadow-blue-500/20"
+        className={`relative w-full max-h-[85vh] bg-gradient-to-br from-slate-900/95 via-blue-900/80 to-slate-900/95 border border-blue-400/30 rounded-2xl overflow-hidden shadow-2xl shadow-blue-500/20 ${section === 'projects' ? 'max-w-6xl' : 'max-w-4xl'}`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
