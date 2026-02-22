@@ -19,13 +19,20 @@ const OwnerShip = dynamic(() => import('@/components/entities/OwnerShip'))
 const AIShip = dynamic(() => import('@/components/entities/AIShip'))
 const SectionContent = dynamic(() => import('@/components/ui/SectionContent'))
 const AIPanel = dynamic(() => import('@/components/ui/AIPanel'))
+const GuestbookPanel = dynamic(() => import('@/components/ui/GuestbookPanel').then(mod => ({ default: mod.GuestbookPanel })))
 
 const UniverseApp = memo(function UniverseApp() {
-  const { stage, zodiacSign, activeNode, setActiveNode } = useUniverseStore()
+  const { stage, zodiacSign, activeNode, setActiveNode, openGuestbook } = useUniverseStore()
 
   const handleNodeClick = (nodeId: string) => {
+    // Special handling for guestbook node
+    if (nodeId === 'guestbook') {
+      openGuestbook()
+      return
+    }
+    
+    // Standard node activation
     setActiveNode(nodeId)
-    // Future: Could add router.push() here based on node route
   }
 
   const handleCloseContent = () => {
@@ -60,6 +67,9 @@ const UniverseApp = memo(function UniverseApp() {
 
               {/* Layer 5: AI Panel (highest z-index) */}
               <AIPanel />
+              
+              {/* Layer 6: Guestbook Panel (flies above constellation) */}
+              <GuestbookPanel />
             </div>
           ) : null}
         </AnimatePresence>

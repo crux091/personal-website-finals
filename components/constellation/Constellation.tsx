@@ -49,10 +49,9 @@ const Constellation = memo(function Constellation({
               hoveredNode === conn.to
 
             return (
-              <>
+              <g key={`${conn.from}-${conn.to}`}>
                 {/* Glow layer */}
                 <line
-                  key={`${conn.from}-${conn.to}-glow`}
                   x1={`${from.position.x}%`}
                   y1={`${from.position.y}%`}
                   x2={`${to.position.x}%`}
@@ -80,7 +79,7 @@ const Constellation = memo(function Constellation({
                     animation: `line-appear 2s ease-out ${0.5 + idx * 0.2}s forwards`,
                   }}
                 />
-              </>
+              </g>
             )
           })}
         </g>

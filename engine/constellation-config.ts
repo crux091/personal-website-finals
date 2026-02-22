@@ -14,12 +14,12 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { id: 'about', label: 'About', position: { x: 65, y: 35 }, route: '/about' },      // Hamal (α Ari)
       { id: 'skills', label: 'Skills', position: { x: 55, y: 42 }, route: '/skills' },     // Sheratan (β Ari)
       { id: 'projects', label: 'Projects', position: { x: 48, y: 50 }, route: '/projects' }, // Mesarthim (γ Ari)
-      { id: 'contact', label: 'Contact', position: { x: 45, y: 60 }, route: '/contact' },  // 41 Ari
+      { id: 'guestbook', label: 'Guestbook', position: { x: 45, y: 60 }, route: '/guestbook' },  // 41 Ari
     ],
     connections: [
       { from: 'about', to: 'skills' },
       { from: 'skills', to: 'projects' },
-      { from: 'projects', to: 'contact' },
+      { from: 'projects', to: 'guestbook' },
     ],
   },
 
@@ -31,14 +31,14 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { id: 'experience', label: 'Experience', position: { x: 38, y: 30 }, route: '/experience' }, // Left horn tip
       { id: 'skills', label: 'Skills', position: { x: 62, y: 30 }, route: '/skills' },    // Right horn tip
       { id: 'projects', label: 'Projects', position: { x: 45, y: 60 }, route: '/projects' }, // Hyades cluster
-      { id: 'contact', label: 'Contact', position: { x: 55, y: 60 }, route: '/contact' }, // Hyades cluster
+      { id: 'guestbook', label: 'Guestbook', position: { x: 55, y: 60 }, route: '/guestbook' }, // Hyades cluster
     ],
     connections: [
       { from: 'about', to: 'experience' },
       { from: 'about', to: 'skills' },
       { from: 'about', to: 'projects' },
-      { from: 'about', to: 'contact' },
-      { from: 'projects', to: 'contact' },
+      { from: 'about', to: 'guestbook' },
+      { from: 'projects', to: 'guestbook' },
     ],
   },
 
@@ -51,13 +51,13 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { id: 'skills', label: 'Skills', position: { x: 35, y: 65 }, route: '/skills' },    // Twin feet
       { id: 'projects', label: 'Projects', position: { x: 60, y: 25 }, route: '/projects' }, // Pollux (β Gem)
       { id: 'gallery', label: 'Gallery', position: { x: 58, y: 45 }, route: '/gallery' }, // Twin body
-      { id: 'contact', label: 'Contact', position: { x: 60, y: 65 }, route: '/contact' }, // Twin feet
+      { id: 'guestbook', label: 'Guestbook', position: { x: 60, y: 65 }, route: '/guestbook' }, // Twin feet
     ],
     connections: [
       { from: 'about', to: 'experience' },
       { from: 'experience', to: 'skills' },
       { from: 'projects', to: 'gallery' },
-      { from: 'gallery', to: 'contact' },
+      { from: 'gallery', to: 'guestbook' },
       { from: 'about', to: 'projects' },
     ],
   },
@@ -70,13 +70,13 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { id: 'skills', label: 'Skills', position: { x: 35, y: 35 }, route: '/skills' },    // Left claw
       { id: 'projects', label: 'Projects', position: { x: 65, y: 35 }, route: '/projects' }, // Right claw
       { id: 'experience', label: 'Experience', position: { x: 42, y: 60 }, route: '/experience' }, // Left leg
-      { id: 'contact', label: 'Contact', position: { x: 58, y: 60 }, route: '/contact' }, // Right leg
+      { id: 'guestbook', label: 'Guestbook', position: { x: 58, y: 60 }, route: '/guestbook' }, // Right leg
     ],
     connections: [
       { from: 'about', to: 'skills' },
       { from: 'about', to: 'projects' },
       { from: 'about', to: 'experience' },
-      { from: 'about', to: 'contact' },
+      { from: 'about', to: 'guestbook' },
     ],
   },
 
@@ -89,15 +89,15 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { id: 'skills', label: 'Skills', position: { x: 42, y: 45 }, route: '/skills' },    // Sickle
       { id: 'projects', label: 'Projects', position: { x: 45, y: 55 }, route: '/projects' }, // Sickle
       { id: 'gallery', label: 'Gallery', position: { x: 65, y: 50 }, route: '/gallery' }, // Denebola (β Leo)
-      { id: 'contact', label: 'Contact', position: { x: 55, y: 60 }, route: '/contact' }, // Hind quarters
+      { id: 'guestbook', label: 'Guestbook', position: { x: 55, y: 60 }, route: '/guestbook' }, // Hind quarters
     ],
     connections: [
       { from: 'about', to: 'experience' },
       { from: 'experience', to: 'skills' },
       { from: 'skills', to: 'projects' },
       { from: 'about', to: 'gallery' },
-      { from: 'projects', to: 'contact' },
-      { from: 'gallery', to: 'contact' },
+      { from: 'projects', to: 'guestbook' },
+      { from: 'gallery', to: 'guestbook' },
     ],
   },
 
@@ -110,15 +110,15 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { id: 'skills', label: 'Skills', position: { x: 55, y: 40 }, route: '/skills' },    // Body
       { id: 'projects', label: 'Projects', position: { x: 38, y: 55 }, route: '/projects' }, // Left arm
       { id: 'gallery', label: 'Gallery', position: { x: 62, y: 55 }, route: '/gallery' }, // Right arm
-      { id: 'contact', label: 'Contact', position: { x: 50, y: 70 }, route: '/contact' }, // Feet
+      { id: 'guestbook', label: 'Guestbook', position: { x: 50, y: 70 }, route: '/guestbook' }, // Feet
     ],
     connections: [
       { from: 'about', to: 'experience' },
       { from: 'about', to: 'skills' },
       { from: 'experience', to: 'projects' },
       { from: 'skills', to: 'gallery' },
-      { from: 'experience', to: 'contact' },
-      { from: 'skills', to: 'contact' },
+      { from: 'experience', to: 'guestbook' },
+      { from: 'skills', to: 'guestbook' },
     ],
   },
 
@@ -130,13 +130,13 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { id: 'about', label: 'About', position: { x: 35, y: 45 }, route: '/about' },       // Left scale (α Lib)
       { id: 'projects', label: 'Projects', position: { x: 65, y: 45 }, route: '/projects' }, // Right scale (β Lib)
       { id: 'experience', label: 'Experience', position: { x: 35, y: 65 }, route: '/experience' }, // Left bowl
-      { id: 'contact', label: 'Contact', position: { x: 65, y: 65 }, route: '/contact' }, // Right bowl
+      { id: 'guestbook', label: 'Guestbook', position: { x: 65, y: 65 }, route: '/guestbook' }, // Right bowl
     ],
     connections: [
       { from: 'skills', to: 'about' },
       { from: 'skills', to: 'projects' },
       { from: 'about', to: 'experience' },
-      { from: 'projects', to: 'contact' },
+      { from: 'projects', to: 'guestbook' },
     ],
   },
 
@@ -149,14 +149,14 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { id: 'skills', label: 'Skills', position: { x: 52, y: 38 }, route: '/skills' },    // Body curve
       { id: 'projects', label: 'Projects', position: { x: 62, y: 42 }, route: '/projects' }, // Tail start
       { id: 'gallery', label: 'Gallery', position: { x: 68, y: 52 }, route: '/gallery' }, // Tail curve
-      { id: 'contact', label: 'Contact', position: { x: 70, y: 65 }, route: '/contact' }, // Stinger
+      { id: 'guestbook', label: 'Guestbook', position: { x: 70, y: 65 }, route: '/guestbook' }, // Stinger
     ],
     connections: [
       { from: 'about', to: 'experience' },
       { from: 'experience', to: 'skills' },
       { from: 'skills', to: 'projects' },
       { from: 'projects', to: 'gallery' },
-      { from: 'gallery', to: 'contact' },
+      { from: 'gallery', to: 'guestbook' },
     ],
   },
 
@@ -168,14 +168,14 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { id: 'skills', label: 'Skills', position: { x: 50, y: 45 }, route: '/skills' },    // Arrow shaft
       { id: 'projects', label: 'Projects', position: { x: 60, y: 55 }, route: '/projects' }, // Bow center
       { id: 'experience', label: 'Experience', position: { x: 55, y: 65 }, route: '/experience' }, // Lower bow
-      { id: 'contact', label: 'Contact', position: { x: 65, y: 65 }, route: '/contact' }, // Upper bow
+      { id: 'guestbook', label: 'Guestbook', position: { x: 65, y: 65 }, route: '/guestbook' }, // Upper bow
     ],
     connections: [
       { from: 'about', to: 'skills' },
       { from: 'skills', to: 'projects' },
       { from: 'projects', to: 'experience' },
-      { from: 'projects', to: 'contact' },
-      { from: 'experience', to: 'contact' },
+      { from: 'projects', to: 'guestbook' },
+      { from: 'experience', to: 'guestbook' },
     ],
   },
 
@@ -187,14 +187,14 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { id: 'experience', label: 'Experience', position: { x: 55, y: 35 }, route: '/experience' }, // Neck
       { id: 'skills', label: 'Skills', position: { x: 60, y: 48 }, route: '/skills' },    // Body
       { id: 'projects', label: 'Projects', position: { x: 52, y: 60 }, route: '/projects' }, // Tail curve
-      { id: 'contact', label: 'Contact', position: { x: 40, y: 65 }, route: '/contact' }, // Tail end
+      { id: 'guestbook', label: 'Guestbook', position: { x: 40, y: 65 }, route: '/guestbook' }, // Tail end
     ],
     connections: [
       { from: 'about', to: 'experience' },
       { from: 'experience', to: 'skills' },
       { from: 'skills', to: 'projects' },
-      { from: 'projects', to: 'contact' },
-      { from: 'about', to: 'contact' },
+      { from: 'projects', to: 'guestbook' },
+      { from: 'about', to: 'guestbook' },
     ],
   },
 
@@ -207,14 +207,14 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { id: 'experience', label: 'Experience', position: { x: 42, y: 45 }, route: '/experience' }, // Water flow
       { id: 'projects', label: 'Projects', position: { x: 58, y: 50 }, route: '/projects' }, // Water flow
       { id: 'gallery', label: 'Gallery', position: { x: 40, y: 65 }, route: '/gallery' }, // Water flow
-      { id: 'contact', label: 'Contact', position: { x: 60, y: 70 }, route: '/contact' }, // Water end
+      { id: 'guestbook', label: 'Guestbook', position: { x: 60, y: 70 }, route: '/guestbook' }, // Water end
     ],
     connections: [
       { from: 'about', to: 'skills' },
       { from: 'skills', to: 'experience' },
       { from: 'experience', to: 'projects' },
       { from: 'projects', to: 'gallery' },
-      { from: 'gallery', to: 'contact' },
+      { from: 'gallery', to: 'guestbook' },
     ],
   },
 
@@ -227,11 +227,11 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { id: 'experience', label: 'Experience', position: { x: 50, y: 45 }, route: '/experience' }, // Cord knot
       { id: 'projects', label: 'Projects', position: { x: 65, y: 40 }, route: '/projects' }, // Eastern fish body
       { id: 'gallery', label: 'Gallery', position: { x: 70, y: 55 }, route: '/gallery' }, // Eastern fish tail
-      { id: 'contact', label: 'Contact', position: { x: 30, y: 65 }, route: '/contact' }, // Western fish tail
+      { id: 'guestbook', label: 'Guestbook', position: { x: 30, y: 65 }, route: '/guestbook' }, // Western fish tail
     ],
     connections: [
       { from: 'about', to: 'skills' },
-      { from: 'skills', to: 'contact' },
+      { from: 'skills', to: 'guestbook' },
       { from: 'skills', to: 'experience' },
       { from: 'experience', to: 'projects' },
       { from: 'projects', to: 'gallery' },
@@ -253,3 +253,4 @@ export function getDominantNode(zodiac: ZodiacSign): string {
   const config = getConstellationConfig(zodiac)
   return config.nodes[0]?.id || 'about'
 }
+
