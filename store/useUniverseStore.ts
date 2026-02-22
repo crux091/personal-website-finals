@@ -6,6 +6,7 @@
 import { create } from 'zustand'
 import { ZodiacSign, AppStage } from '@/types'
 import type { Comment } from '@/types/comment'
+import { getCurrentZodiacId } from '@/engine/zodiac-data'
 import type { RealtimeChannel } from '@supabase/supabase-js'
 import {
   fetchComments,
@@ -22,6 +23,7 @@ interface UniverseState {
   // Navigation State
   activeNode: string | null
   hoveredNode: string | null
+  activeZodiac: string
   
   // UI State
   aiOpen: boolean
@@ -36,6 +38,7 @@ interface UniverseState {
   // Actions
   setStage: (stage: AppStage) => void
   setZodiacSign: (sign: ZodiacSign) => void
+  setActiveZodiac: (zodiac: string) => void
   completeIntro: (sign: ZodiacSign) => void
   setActiveNode: (nodeId: string | null) => void
   setHoveredNode: (nodeId: string | null) => void
@@ -61,6 +64,7 @@ const initialState = {
   introCompleted: false,
   activeNode: null,
   hoveredNode: null,
+  activeZodiac: getCurrentZodiacId(),
   aiOpen: false,
   guestbookOpen: false,
   comments: [] as Comment[],
@@ -83,6 +87,8 @@ export const useUniverseStore = create<UniverseState>((set, get) => ({
   }),
   
   setActiveNode: (nodeId) => set({ activeNode: nodeId }),
+
+  setActiveZodiac: (zodiac) => set({ activeZodiac: zodiac, activeNode: null }),
   
   setHoveredNode: (nodeId) => set({ hoveredNode: nodeId }),
   

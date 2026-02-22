@@ -21,6 +21,12 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { from: 'skills', to: 'projects' },
       { from: 'projects', to: 'guestbook' },
     ],
+    decorativeStars: [
+      { x: 70, y: 28, magnitude: 2 },
+      { x: 60, y: 38, magnitude: 3 },
+      { x: 72, y: 52, magnitude: 3 },
+      { x: 42, y: 68, magnitude: 2 },
+    ],
   },
 
   // Taurus - Bull's Head and Horns (V-shape with Aldebaran)
@@ -39,6 +45,13 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { from: 'about', to: 'projects' },
       { from: 'about', to: 'guestbook' },
       { from: 'projects', to: 'guestbook' },
+    ],
+    decorativeStars: [
+      { x: 42, y: 50, magnitude: 2 },
+      { x: 56, y: 52, magnitude: 2 },
+      { x: 48, y: 68, magnitude: 3 },
+      { x: 60, y: 42, magnitude: 3 },
+      { x: 36, y: 65, magnitude: 3 },
     ],
   },
 
@@ -60,6 +73,13 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { from: 'gallery', to: 'guestbook' },
       { from: 'about', to: 'projects' },
     ],
+    decorativeStars: [
+      { x: 48, y: 15, magnitude: 2 },
+      { x: 65, y: 15, magnitude: 2 },
+      { x: 30, y: 75, magnitude: 3 },
+      { x: 63, y: 75, magnitude: 3 },
+      { x: 47, y: 55, magnitude: 3 },
+    ],
   },
 
   // Cancer - Crab (sideways Y-shape)
@@ -77,6 +97,13 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { from: 'about', to: 'projects' },
       { from: 'about', to: 'experience' },
       { from: 'about', to: 'guestbook' },
+    ],
+    decorativeStars: [
+      { x: 42, y: 28, magnitude: 2 },
+      { x: 58, y: 28, magnitude: 2 },
+      { x: 35, y: 52, magnitude: 3 },
+      { x: 65, y: 52, magnitude: 3 },
+      { x: 50, y: 72, magnitude: 3 },
     ],
   },
 
@@ -99,6 +126,13 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { from: 'projects', to: 'guestbook' },
       { from: 'gallery', to: 'guestbook' },
     ],
+    decorativeStars: [
+      { x: 35, y: 18, magnitude: 2 },
+      { x: 72, y: 38, magnitude: 2 },
+      { x: 30, y: 62, magnitude: 3 },
+      { x: 70, y: 65, magnitude: 3 },
+      { x: 58, y: 30, magnitude: 3 },
+    ],
   },
 
   // Virgo - Maiden (Y-shape representing figure)
@@ -120,6 +154,13 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { from: 'experience', to: 'guestbook' },
       { from: 'skills', to: 'guestbook' },
     ],
+    decorativeStars: [
+      { x: 32, y: 20, magnitude: 2 },
+      { x: 68, y: 20, magnitude: 2 },
+      { x: 28, y: 48, magnitude: 3 },
+      { x: 72, y: 48, magnitude: 3 },
+      { x: 50, y: 80, magnitude: 3 },
+    ],
   },
 
   // Libra - Scales (balanced diamond shape)
@@ -137,6 +178,13 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { from: 'skills', to: 'projects' },
       { from: 'about', to: 'experience' },
       { from: 'projects', to: 'guestbook' },
+    ],
+    decorativeStars: [
+      { x: 50, y: 38, magnitude: 2 },
+      { x: 28, y: 55, magnitude: 3 },
+      { x: 72, y: 55, magnitude: 3 },
+      { x: 28, y: 75, magnitude: 2 },
+      { x: 72, y: 75, magnitude: 2 },
     ],
   },
 
@@ -158,6 +206,14 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { from: 'projects', to: 'gallery' },
       { from: 'gallery', to: 'guestbook' },
     ],
+    decorativeStars: [
+      { x: 22, y: 38, magnitude: 1 },
+      { x: 18, y: 55, magnitude: 2 },
+      { x: 20, y: 68, magnitude: 3 },
+      { x: 73, y: 58, magnitude: 2 },
+      { x: 73, y: 72, magnitude: 1 },
+      { x: 72, y: 78, magnitude: 2 },
+    ],
   },
 
   // Sagittarius - Archer's Bow and Arrow
@@ -177,6 +233,13 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { from: 'projects', to: 'guestbook' },
       { from: 'experience', to: 'guestbook' },
     ],
+    decorativeStars: [
+      { x: 32, y: 48, magnitude: 2 },
+      { x: 48, y: 32, magnitude: 2 },
+      { x: 70, y: 48, magnitude: 3 },
+      { x: 72, y: 62, magnitude: 3 },
+      { x: 35, y: 72, magnitude: 3 },
+    ],
   },
 
   // Capricorn - Sea-Goat (triangle body with curved tail)
@@ -195,6 +258,13 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { from: 'skills', to: 'projects' },
       { from: 'projects', to: 'guestbook' },
       { from: 'about', to: 'guestbook' },
+    ],
+    decorativeStars: [
+      { x: 32, y: 25, magnitude: 2 },
+      { x: 68, y: 28, magnitude: 2 },
+      { x: 30, y: 52, magnitude: 3 },
+      { x: 68, y: 55, magnitude: 3 },
+      { x: 50, y: 72, magnitude: 2 },
     ],
   },
 
@@ -216,6 +286,14 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { from: 'projects', to: 'gallery' },
       { from: 'gallery', to: 'guestbook' },
     ],
+    decorativeStars: [
+      { x: 35, y: 18, magnitude: 2 },
+      { x: 65, y: 22, magnitude: 2 },
+      { x: 30, y: 48, magnitude: 3 },
+      { x: 68, y: 42, magnitude: 3 },
+      { x: 50, y: 58, magnitude: 2 },
+      { x: 55, y: 72, magnitude: 3 },
+    ],
   },
 
   // Pisces - Two Fish connected by cord (circlet shape)
@@ -235,6 +313,14 @@ export const CONSTELLATION_CONFIGS: Record<ZodiacSign, ConstellationConfig> = {
       { from: 'skills', to: 'experience' },
       { from: 'experience', to: 'projects' },
       { from: 'projects', to: 'gallery' },
+    ],
+    decorativeStars: [
+      { x: 22, y: 28, magnitude: 2 },
+      { x: 22, y: 58, magnitude: 2 },
+      { x: 42, y: 28, magnitude: 3 },
+      { x: 78, y: 28, magnitude: 3 },
+      { x: 78, y: 62, magnitude: 2 },
+      { x: 58, y: 72, magnitude: 3 },
     ],
   },
 }
