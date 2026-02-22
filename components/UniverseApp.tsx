@@ -20,7 +20,6 @@ const AIShip = dynamic(() => import('@/components/entities/AIShip'))
 const SectionContent = dynamic(() => import('@/components/ui/SectionContent'))
 const AIPanel = dynamic(() => import('@/components/ui/AIPanel'))
 const GuestbookPanel = dynamic(() => import('@/components/ui/GuestbookPanel').then(mod => ({ default: mod.GuestbookPanel })))
-const ZodiacPicker = dynamic(() => import('@/components/ui/ZodiacPicker').then(mod => ({ default: mod.ZodiacPicker })))
 
 const UniverseApp = memo(function UniverseApp() {
   const { stage, zodiacSign, activeNode, setActiveNode, openGuestbook } = useUniverseStore()
@@ -53,7 +52,7 @@ const UniverseApp = memo(function UniverseApp() {
           ) : zodiacSign ? (
             <div key="main" className="relative w-full h-full">
               {/* Layer 2: Constellation Structure */}
-              <Constellation onNodeClick={handleNodeClick} />
+              <Constellation zodiac={zodiacSign} onNodeClick={handleNodeClick} />
 
               {/* Layer 3: Entities */}
               <OwnerShip zodiac={zodiacSign} />
@@ -71,9 +70,6 @@ const UniverseApp = memo(function UniverseApp() {
               
               {/* Layer 6: Guestbook Panel (flies above constellation) */}
               <GuestbookPanel />
-
-              {/* Layer 7: Zodiac Picker */}
-              <ZodiacPicker />
             </div>
           ) : null}
         </AnimatePresence>

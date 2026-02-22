@@ -35,17 +35,10 @@ export interface ConstellationConnection {
   to: string
 }
 
-export interface DecorativeStar {
-  x: number  // percentage
-  y: number  // percentage
-  magnitude?: number  // 1 (brightest) – 3 (faintest), default 2
-}
-
 export interface ConstellationConfig {
   id: ZodiacSign
   nodes: ConstellationNode[]
   connections: ConstellationConnection[]
-  decorativeStars?: DecorativeStar[]
 }
 
 export type AppStage = 'intro' | 'main'

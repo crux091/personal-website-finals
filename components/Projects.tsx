@@ -7,7 +7,7 @@ import RepeatInView from './RepeatInView'
 
 export default function Projects() {
   return (
-    <div className="relative" style={{ zoom: '0.8' }}>
+    <div className="relative">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-emerald-500 rounded-full blur-3xl" />
