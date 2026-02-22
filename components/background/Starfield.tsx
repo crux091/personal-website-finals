@@ -9,6 +9,17 @@
 import { useEffect, useRef, memo } from 'react'
 import type { Star } from '@/types'
 
+interface Meteor {
+  x: number
+  y: number
+  vx: number
+  vy: number
+  length: number
+  opacity: number
+  life: number
+  maxLife: number
+}
+
 interface StarfieldProps {
   starCount?: number
   parallaxStrength?: number
@@ -22,8 +33,66 @@ const Starfield = memo(function Starfield({
 }: StarfieldProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const starsRef = useRef<Star[]>([])
+  const meteorsRef = useRef<Meteor[]>([])
   const mouseRef = useRef({ x: 0, y: 0 })
   const rafRef = useRef<number>()
+  const lastMeteorTimeRef = useRef<number>(Date.now())
+
+  // Function to create a meteor shower (3 meteors)
+  const createMeteorShower = (canvas: HTMLCanvasElement) => {
+    const meteorCount = 3
+    
+    // Randomly choose corner direction
+    const cornerDirection = Math.random()
+    let startX, startY, targetX, targetY
+    
+    if (cornerDirection < 0.5) {
+      // Top-left to bottom-right
+      startX = -100
+      startY = -100
+      targetX = canvas.width + 100
+      targetY = canvas.height + 100
+    } else {
+      // Top-right to bottom-left
+      startX = canvas.width + 100
+      startY = -100
+      targetX = -100
+      targetY = canvas.height + 100
+    }
+    
+    // Calculate diagonal distance
+    const distance = Math.sqrt(Math.pow(targetX - startX, 2) + Math.pow(targetY - startY, 2))
+    
+    // Speed: pixels per frame - make it fast enough to cross screen smoothly
+    const speed = 12
+    const travelFrames = distance / speed
+    
+    // Calculate velocity components based on speed
+    const angle = Math.atan2(targetY - startY, targetX - startX)
+    const baseVX = Math.cos(angle) * speed
+    const baseVY = Math.sin(angle) * speed
+    
+    for (let i = 0; i < meteorCount; i++) {
+      // Meteors spawn close together perpendicular to direction of travel
+      const perpendicularOffset = (i - 1) * 80 // Spread them out
+      const parallelOffset = i * 40 // Slight stagger along path
+      
+      // Calculate perpendicular direction
+      const perpX = -Math.sin(angle) * perpendicularOffset
+      const perpY = Math.cos(angle) * perpendicularOffset
+      
+      meteorsRef.current.push({
+        x: startX + perpX - (baseVX * parallelOffset / speed),
+        y: startY + perpY - (baseVY * parallelOffset / speed),
+        vx: baseVX,
+        vy: baseVY,
+        length: 120, // Longer trail for corner-to-corner
+        opacity: 1,
+        life: 0,
+        maxLife: Math.ceil(travelFrames) + 20, // Ensure enough frames to cross screen
+      })
+    }
+  }
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -87,6 +156,66 @@ const Starfield = memo(function Starfield({
       grad.addColorStop(1, '#000000')
       ctx.fillStyle = grad
       ctx.fillRect(0, 0, width, height)
+
+      // Check if it's time for meteor shower (every 15 seconds)
+      const currentTime = Date.now()
+      if (currentTime - lastMeteorTimeRef.current > 15000) {
+        createMeteorShower(canvas)
+        lastMeteorTimeRef.current = currentTime
+      }
+
+      // Update and render meteors
+      meteorsRef.current = meteorsRef.current.filter((meteor) => {
+        meteor.life++
+        
+        // Only update position and render if meteor has started (life >= 0)
+        if (meteor.life >= 0) {
+          meteor.x += meteor.vx
+          meteor.y += meteor.vy
+
+          // Fade out as life progresses
+          meteor.opacity = Math.max(0, 1 - meteor.life / meteor.maxLife)
+
+          // Draw meteor trail
+          if (meteor.opacity > 0) {
+            const gradient = ctx.createLinearGradient(
+              meteor.x,
+              meteor.y,
+              meteor.x - meteor.vx * 5,
+              meteor.y - meteor.vy * 5
+            )
+            gradient.addColorStop(0, `rgba(147, 197, 253, ${meteor.opacity})`) // Bright blue-white
+            gradient.addColorStop(0.5, `rgba(96, 165, 250, ${meteor.opacity * 0.6})`) // Blue
+            gradient.addColorStop(1, `rgba(59, 130, 246, 0)`) // Fade to transparent
+
+            ctx.strokeStyle = gradient
+            ctx.lineWidth = 2
+            ctx.lineCap = 'round'
+            
+            // Draw glowing core
+            ctx.shadowBlur = 10
+            ctx.shadowColor = `rgba(147, 197, 253, ${meteor.opacity})`
+            
+            ctx.beginPath()
+            ctx.moveTo(meteor.x, meteor.y)
+            ctx.lineTo(
+              meteor.x - (meteor.vx / Math.abs(meteor.vx || 1)) * meteor.length,
+              meteor.y - (meteor.vy / Math.abs(meteor.vy || 1)) * meteor.length * 0.5
+            )
+            ctx.stroke()
+            
+            ctx.shadowBlur = 0
+          }
+        }
+
+        // Remove if dead or off screen
+        return (
+          meteor.life < meteor.maxLife &&
+          meteor.x > -200 &&
+          meteor.x < width + 200 &&
+          meteor.y < height + 200
+        )
+      })
 
       // Render stars (fixed positions)
       starsRef.current.forEach((star) => {

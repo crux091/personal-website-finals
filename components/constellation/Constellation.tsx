@@ -49,20 +49,38 @@ const Constellation = memo(function Constellation({
               hoveredNode === conn.to
 
             return (
-              <line
-                key={`${conn.from}-${conn.to}`}
-                x1={`${from.position.x}%`}
-                y1={`${from.position.y}%`}
-                x2={`${to.position.x}%`}
-                y2={`${to.position.y}%`}
-                stroke={isActive ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.15)'}
-                strokeWidth={isActive ? '1' : '0.5'}
-                className="transition-opacity duration-500"
-                style={{
-                  opacity: 0,
-                  animation: `line-appear 2s ease-out ${0.5 + idx * 0.2}s forwards`,
-                }}
-              />
+              <>
+                {/* Glow layer */}
+                <line
+                  key={`${conn.from}-${conn.to}-glow`}
+                  x1={`${from.position.x}%`}
+                  y1={`${from.position.y}%`}
+                  x2={`${to.position.x}%`}
+                  y2={`${to.position.y}%`}
+                  stroke={isActive ? 'rgba(96, 165, 250, 0.5)' : 'rgba(96, 165, 250, 0.2)'}
+                  strokeWidth={isActive ? '3' : '2'}
+                  className="transition-all duration-500 blur-sm"
+                  style={{
+                    opacity: 0,
+                    animation: `line-appear 2s ease-out ${0.5 + idx * 0.2}s forwards`,
+                  }}
+                />
+                {/* Main line */}
+                <line
+                  key={`${conn.from}-${conn.to}`}
+                  x1={`${from.position.x}%`}
+                  y1={`${from.position.y}%`}
+                  x2={`${to.position.x}%`}
+                  y2={`${to.position.y}%`}
+                  stroke={isActive ? 'rgba(147, 197, 253, 0.8)' : 'rgba(191, 219, 254, 0.4)'}
+                  strokeWidth={isActive ? '1.5' : '1'}
+                  className="transition-all duration-500"
+                  style={{
+                    opacity: 0,
+                    animation: `line-appear 2s ease-out ${0.5 + idx * 0.2}s forwards`,
+                  }}
+                />
+              </>
             )
           })}
         </g>
@@ -116,25 +134,50 @@ const ConstellationNode = memo(function ConstellationNode({
         onMouseLeave={onHoverEnd}
       >
         <button onClick={onClick} className="relative">
+          {/* Outer Glow */}
+          <div
+            className={`absolute inset-[-12px] rounded-full transition-all duration-500 blur-lg ${
+              isActive ? 'bg-blue-400/40 scale-150' : 
+              isHovered ? 'bg-cyan-400/30 scale-125' : 
+              'bg-blue-300/10 scale-100'
+            }`}
+          />
+
+          {/* Middle Glow */}
+          <div
+            className={`absolute inset-[-6px] rounded-full transition-all duration-300 blur-md ${
+              isActive ? 'bg-blue-300/50' : 
+              isHovered ? 'bg-cyan-300/40' : 
+              'bg-blue-200/15'
+            }`}
+          />
+
           {/* Core Node */}
           <div
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              isActive ? 'bg-white shadow-[0_0_25px_rgba(255,255,255,0.7)] animate-pulse-slow' : 
-              isHovered ? 'bg-white/60 shadow-[0_0_20px_rgba(255,255,255,0.5)] scale-110' : 
-              'bg-white/40 shadow-[0_0_10px_rgba(255,255,255,0.2)] animate-pulse-slower'
+            className={`relative w-3 h-3 rounded-full transition-all duration-300 ${
+              isActive ? 'bg-white shadow-[0_0_40px_rgba(147,197,253,0.9)] scale-125' : 
+              isHovered ? 'bg-cyan-100 shadow-[0_0_30px_rgba(34,211,238,0.8)] scale-150' : 
+              'bg-blue-100 shadow-[0_0_15px_rgba(191,219,254,0.5)] animate-pulse-slower'
             }`}
           />
 
           {/* Active Ring */}
           {isActive && (
-            <div className="absolute inset-[-6px] border border-white/30 rounded-full animate-ping-slow" />
+            <div className="absolute inset-[-8px] border-2 border-blue-400/40 rounded-full animate-ping-slow" />
+          )}
+
+          {/* Hover Ring */}
+          {isHovered && !isActive && (
+            <div className="absolute inset-[-6px] border border-cyan-300/60 rounded-full animate-pulse" />
           )}
         </button>
 
         {/* Node Label */}
         <span
-          className={`mt-4 text-xs tracking-[0.2em] uppercase font-light transition-opacity duration-300 ${
-            isHovered || isActive ? 'opacity-100 text-white/80' : 'opacity-40 text-white/60'
+          className={`mt-4 text-xs tracking-[0.2em] uppercase font-light transition-all duration-300 ${
+            isActive ? 'opacity-100 text-blue-200 drop-shadow-[0_0_8px_rgba(147,197,253,0.8)]' :
+            isHovered ? 'opacity-100 text-cyan-100 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)] scale-110' : 
+            'opacity-60 text-blue-100/70 drop-shadow-[0_0_4px_rgba(191,219,254,0.3)]'
           }`}
         >
           {node.label}

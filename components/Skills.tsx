@@ -20,15 +20,16 @@ export default function Skills() {
   return (
     <div className="relative">
       {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-primary-400 rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-500 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-pink-500 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10">
         <RepeatInView variants={fadeUp} transition={transition} delay={0.15}>
           <div className="text-center mb-16">
-            <h2 className="text-ui text-white/60 mb-2">Technical Archetypes</h2>
-            <p className="text-narrative text-white/30 italic max-w-xl mx-auto">
+            <h2 className="text-ui text-purple-200 mb-2 text-3xl font-light tracking-wider">Technical Archetypes</h2>
+            <p className="text-narrative text-pink-300/70 italic max-w-xl mx-auto">
               Instruments and conduits utilized in the digital realm.
             </p>
           </div>
@@ -39,28 +40,28 @@ export default function Skills() {
             <RepeatInView key={name} variants={fadeUp} transition={transition} delay={0.1 + idx * 0.05}>
               <motion.div
                 whileHover={{ y: -6 }}
-                className="glass-card p-8 group cursor-default relative overflow-hidden bg-white/[0.01] border-white/5"
+                className="glass-card p-8 group cursor-default relative overflow-hidden bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-purple-500/10 border-purple-400/20 hover:border-pink-400/40 transition-all duration-500 backdrop-blur-sm"
               >
                 {/* Subtle depth flare */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 bg-gradient-to-br from-purple-400/10 to-pink-400/10 pointer-events-none" />
 
                 <div className="relative flex flex-col items-center gap-6 text-center">
-                  {/* Icon container - Desaturated by default */}
+                  {/* Icon container */}
                   <div className="relative">
-                    <div className="relative h-14 w-14 grid place-items-center rounded-full bg-white/[0.03] border border-white/5 group-hover:bg-white/[0.05] group-hover:border-white/10 transition-all duration-1000">
-                      <Icon size={24} className="text-white/20 group-hover:text-white transition-colors duration-1000" />
+                    <div className="relative h-14 w-14 grid place-items-center rounded-full bg-purple-500/10 border border-purple-400/20 group-hover:bg-pink-500/20 group-hover:border-pink-400/30 transition-all duration-1000 group-hover:shadow-lg group-hover:shadow-pink-500/20">
+                      <Icon size={24} className="text-purple-300/70 group-hover:text-pink-200 transition-colors duration-1000" />
                     </div>
                   </div>
 
                   {/* Skill name */}
-                  <div className="text-ui text-white/40 group-hover:text-white/80 transition-colors duration-1000">
+                  <div className="text-ui text-purple-100/80 group-hover:text-pink-100 transition-colors duration-1000">
                     {name}
                   </div>
 
                   {/* Abstract level indicator */}
-                  <div className="w-12 h-[1px] bg-white/5 relative overflow-hidden">
+                  <div className="w-12 h-[1px] bg-purple-400/20 relative overflow-hidden">
                     <motion.div
-                      className="absolute inset-0 bg-white/20"
+                      className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400"
                       initial={{ x: '-100%' }}
                       whileInView={{ x: '0%' }}
                       viewport={{ once: true }}

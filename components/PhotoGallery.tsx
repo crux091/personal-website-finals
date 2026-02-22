@@ -45,15 +45,16 @@ export default function PhotoGallery() {
   return (
     <div className="relative">
       {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/2 right-1/3 w-96 h-96 bg-primary-500 rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-1/2 right-1/3 w-96 h-96 bg-amber-500 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 left-1/3 w-96 h-96 bg-yellow-500 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10">
         <RepeatInView variants={fadeUp} transition={transition} delay={0.05}>
           <div className="text-center mb-20">
-            <h2 className="text-ui text-primary-400 opacity-100 mb-2">Visual Echoes</h2>
-            <p className="text-narrative text-white/40 italic max-w-xl mx-auto">
+            <h2 className="text-ui text-amber-200 mb-2 text-3xl font-light tracking-wider">Visual Echoes</h2>
+            <p className="text-narrative text-yellow-300/70 italic max-w-xl mx-auto">
               Captured moments within the digital continuum.
             </p>
           </div>

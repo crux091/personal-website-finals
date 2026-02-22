@@ -9,15 +9,16 @@ export default function Projects() {
   return (
     <div className="relative">
       {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-primary-500 rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-emerald-500 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 right-1/3 w-96 h-96 bg-teal-500 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10">
         <RepeatInView variants={fadeUp} transition={transition} delay={0.1}>
           <div className="text-center mb-16">
-            <h2 className="text-ui text-white/60 mb-2">Constellation of Work</h2>
-            <p className="text-narrative text-white/30 italic max-w-xl mx-auto">
+            <h2 className="text-ui text-emerald-200 mb-2 text-3xl font-light tracking-wider">Constellation of Work</h2>
+            <p className="text-narrative text-teal-300/70 italic max-w-xl mx-auto">
               A record of manifestations in the digital void.
             </p>
           </div>

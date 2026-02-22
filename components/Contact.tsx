@@ -117,15 +117,16 @@ export default function Contact() {
   return (
     <div className="relative">
       {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-primary-400 rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-orange-500 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-rose-500 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10">
         <RepeatInView variants={fadeUp} transition={transition} delay={0.05}>
           <div className="text-center mb-16">
-            <h2 className="text-ui text-primary-400 opacity-100 mb-2">Signal Transmission</h2>
-            <p className="text-narrative text-white/40 italic max-w-xl mx-auto">
+            <h2 className="text-ui text-orange-200 mb-2 text-3xl font-light tracking-wider">Signal Transmission</h2>
+            <p className="text-narrative text-rose-300/70 italic max-w-xl mx-auto">
               Initiate contact across the digital expanse.
             </p>
           </div>
@@ -135,9 +136,9 @@ export default function Contact() {
           {/* Contact info */}
           <RepeatInView variants={fadeIn} transition={transition} delay={0.18}>
             <div className="space-y-6">
-              <div className="glass-card p-10 bg-white/[0.01] border-white/5">
-                <h3 className="text-xl font-light text-white mb-6">Established Channels</h3>
-                <p className="text-narrative text-white/40 leading-relaxed mb-10">
+              <div className="glass-card p-10 bg-gradient-to-br from-orange-500/10 via-rose-500/5 to-orange-500/10 border-orange-400/20 backdrop-blur-sm">
+                <h3 className="text-xl font-light text-orange-100 mb-6">Established Channels</h3>
+                <p className="text-narrative text-rose-200/70 leading-relaxed mb-10">
                   I remain receptive to creative collaborations, experimental projects, and architecting new visions.
                 </p>
 
