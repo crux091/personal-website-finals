@@ -128,11 +128,15 @@ const ConstellationNode = memo(function ConstellationNode({
       style={{ transform: 'translate(-70px, -70px)' }}
     >
       <div
-        className="w-full h-full flex flex-col items-center justify-center pointer-events-auto group"
+        className="w-full h-full relative pointer-events-auto group"
         onMouseEnter={onHoverStart}
         onMouseLeave={onHoverEnd}
       >
-        <button onClick={onClick} className="relative">
+        {/* Circle — absolutely centered so lines meet it exactly */}
+        <button
+          onClick={onClick}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
           {/* Outer Glow */}
           <div
             className={`absolute inset-[-12px] rounded-full transition-all duration-500 blur-lg ${
@@ -171,13 +175,14 @@ const ConstellationNode = memo(function ConstellationNode({
           )}
         </button>
 
-        {/* Node Label */}
+        {/* Label — anchored below center point */}
         <span
-          className={`mt-4 text-xs tracking-[0.2em] uppercase font-light transition-all duration-300 ${
+          className={`absolute left-1/2 -translate-x-1/2 text-xs tracking-[0.2em] uppercase font-light whitespace-nowrap transition-all duration-300 ${
             isActive ? 'opacity-100 text-blue-200 drop-shadow-[0_0_8px_rgba(147,197,253,0.8)]' :
             isHovered ? 'opacity-100 text-cyan-100 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)] scale-110' : 
             'opacity-60 text-blue-100/70 drop-shadow-[0_0_4px_rgba(191,219,254,0.3)]'
           }`}
+          style={{ top: 'calc(50% + 14px)' }}
         >
           {node.label}
         </span>
