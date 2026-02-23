@@ -47,26 +47,26 @@ export default function About() {
 
       <div className="relative z-10">
         <RepeatInView variants={fadeUp} transition={transition} delay={0.1}>
-          <div className="text-center mb-16">
-            <h2 className="text-ui text-blue-200 mb-2 text-3xl font-light tracking-wider">The Architect</h2>
+          <div className="text-center mb-4 sm:mb-8">
+            <h2 className="text-ui text-blue-200 mb-1 text-xl sm:text-2xl md:text-3xl font-light tracking-wider">The Architect</h2>
             <p className="text-narrative text-cyan-300/70 italic max-w-xl mx-auto">
               Constructing elegant systems and intuitive digital realms.
             </p>
           </div>
         </RepeatInView>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 items-start">
           {/* Main content */}
           <RepeatInView variants={fadeIn} transition={transition} delay={0.25}>
             <div className="space-y-8">
-              <div className="glass-card p-10 bg-gradient-to-br from-blue-500/10 via-cyan-500/5 to-blue-500/10 border-blue-400/20 backdrop-blur-sm">
-                <p className="text-xl text-blue-100/90 leading-relaxed text-narrative">
+              <div className="glass-card p-4 sm:p-6 bg-gradient-to-br from-blue-500/10 via-cyan-500/5 to-blue-500/10 border-blue-400/20 backdrop-blur-sm">
+                <p className="text-base sm:text-lg text-blue-100/90 leading-relaxed text-narrative">
                   I am a digital architect specialized in building{' '}
                   <span className="text-cyan-200 font-normal">performant and accessible</span>{' '}
                   realms. My focus lies in the intersection of technical precision and human-centric interaction.
                 </p>
 
-                <p className="text-lg text-blue-200/70 text-narrative leading-relaxed mt-6 italic">
+                <p className="text-sm sm:text-base text-blue-200/70 text-narrative leading-relaxed mt-3 italic">
                   Observation, iteration, and discovery define my process.
                 </p>
               </div>
@@ -75,14 +75,14 @@ export default function About() {
 
           {/* Highlights grid */}
           <RepeatInView variants={fadeUp} transition={transition} delay={0.35}>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-2 sm:gap-4">
               {highlights.map((item, idx) => (
                 <motion.div
                   key={idx}
                   whileHover={{ y: -4 }}
-                  className="glass-card p-8 text-center bg-gradient-to-br from-blue-500/5 to-cyan-500/5 border-blue-400/20 group hover:border-cyan-400/40 transition-all duration-500 backdrop-blur-sm"
+                  className="glass-card p-3 sm:p-5 text-center bg-gradient-to-br from-blue-500/5 to-cyan-500/5 border-blue-400/20 group hover:border-cyan-400/40 transition-all duration-500 backdrop-blur-sm"
                 >
-                  <div className="opacity-60 group-hover:opacity-100 transition-opacity duration-700 mb-6 text-cyan-400 group-hover:text-cyan-300">{item.icon}</div>
+                  <div className="opacity-60 group-hover:opacity-100 transition-opacity duration-700 mb-2 text-cyan-400 group-hover:text-cyan-300">{item.icon}</div>
                   <h3 className="text-ui text-blue-100 mb-2 group-hover:text-cyan-200 transition-colors">{item.title}</h3>
                   <p className="text-narrative text-xs text-blue-200/60 italic group-hover:text-blue-100/80 transition-colors">{item.desc}</p>
                 </motion.div>

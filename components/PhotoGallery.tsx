@@ -52,7 +52,7 @@ export default function PhotoGallery() {
 
       <div className="relative z-10">
         <RepeatInView variants={fadeUp} transition={transition} delay={0.05}>
-          <div className="text-center mb-20">
+          <div className="text-center mb-3 sm:mb-5">
             <h2 className="text-ui text-amber-200 mb-2 text-3xl font-light tracking-wider">Visual Echoes</h2>
             <p className="text-narrative text-yellow-300/70 italic max-w-xl mx-auto">
               Captured moments within the digital continuum.
@@ -72,7 +72,7 @@ export default function PhotoGallery() {
                 {galleryImages.map((img, idx) => (
                   <motion.div
                     key={idx}
-                    className="relative flex-shrink-0 w-72 sm:w-80 h-96 glass-card rounded-2xl overflow-hidden group"
+                    className="relative flex-shrink-0 w-64 sm:w-72 h-52 sm:h-64 glass-card rounded-2xl overflow-hidden group"
                     onClick={() => setOpenIndex(idx)}
                     role="button"
                     tabIndex={0}

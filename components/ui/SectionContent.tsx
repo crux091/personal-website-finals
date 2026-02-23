@@ -67,7 +67,7 @@ const SectionContent = memo(function SectionContent({
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-        className="relative w-full max-w-4xl max-h-[85vh] bg-gradient-to-br from-slate-900/95 via-blue-900/80 to-slate-900/95 border border-blue-400/30 rounded-2xl overflow-hidden shadow-2xl shadow-blue-500/20"
+        className="relative w-full max-w-4xl max-h-[88vh] sm:max-h-[92vh] flex flex-col bg-gradient-to-br from-slate-900/95 via-blue-900/80 to-slate-900/95 border border-blue-400/30 rounded-2xl overflow-hidden shadow-2xl shadow-blue-500/20"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -91,7 +91,7 @@ const SectionContent = memo(function SectionContent({
         </button>
 
         {/* Content */}
-        <div className="h-full overflow-y-auto p-8 md:p-12">
+        <div className="overflow-y-auto pt-16 pb-4 px-4 sm:pt-16 sm:px-8 sm:pb-6 md:pt-16 md:px-12 md:pb-8 overscroll-contain">
           {renderContent()}
         </div>
       </motion.div>

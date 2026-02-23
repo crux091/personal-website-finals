@@ -122,15 +122,17 @@ const ConstellationNode = memo(function ConstellationNode({
     <foreignObject
       x={`${node.position.x}%`}
       y={`${node.position.y}%`}
-      width="140"
-      height="140"
+      width="120"
+      height="120"
       className="overflow-visible"
-      style={{ transform: 'translate(-70px, -70px)' }}
+      style={{ transform: 'translate(-60px, -60px)' }}
     >
       <div
         className="w-full h-full relative pointer-events-auto group"
         onMouseEnter={onHoverStart}
         onMouseLeave={onHoverEnd}
+        onTouchStart={onHoverStart}
+        onTouchEnd={onHoverEnd}
       >
         {/* Circle — absolutely centered so lines meet it exactly */}
         <button
@@ -157,7 +159,7 @@ const ConstellationNode = memo(function ConstellationNode({
 
           {/* Core Node */}
           <div
-            className={`relative w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`relative w-4 h-4 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
               isActive ? 'bg-white shadow-[0_0_40px_rgba(147,197,253,0.9)] scale-125' : 
               isHovered ? 'bg-cyan-100 shadow-[0_0_30px_rgba(34,211,238,0.8)] scale-150' : 
               'bg-blue-100 shadow-[0_0_15px_rgba(191,219,254,0.5)] animate-pulse-slower'

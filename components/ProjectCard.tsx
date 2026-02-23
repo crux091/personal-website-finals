@@ -32,14 +32,14 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
             handleClick()
           }
         }}
-        className="glass-card p-8 h-full cursor-pointer relative overflow-hidden bg-gradient-to-br from-emerald-500/5 via-teal-500/5 to-emerald-500/10 border-emerald-400/20 group-hover:border-teal-400/40 transition-all duration-1000 backdrop-blur-sm hover:shadow-lg hover:shadow-emerald-500/10"
+        className="glass-card p-4 sm:p-5 h-full cursor-pointer relative overflow-hidden bg-gradient-to-br from-emerald-500/5 via-teal-500/5 to-emerald-500/10 border-emerald-400/20 group-hover:border-teal-400/40 transition-all duration-1000 backdrop-blur-sm hover:shadow-lg hover:shadow-emerald-500/10"
       >
         {/* Hover glow effect */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 bg-gradient-to-br from-emerald-400/5 to-teal-400/5 pointer-events-none" />
         
         <div className="relative z-10 flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-start justify-between mb-8">
+          <div className="flex items-start justify-between mb-3">
             <div className="p-3 rounded-full bg-emerald-500/10 border border-emerald-400/20 group-hover:border-teal-400/30 group-hover:scale-110 group-hover:bg-teal-500/20 transition-all duration-1000">
               <svg className="w-5 h-5 text-emerald-300/70 group-hover:text-teal-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -54,16 +54,16 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
           </div>
 
           {/* Content */}
-          <h3 className="text-xl font-light tracking-wide text-emerald-100 group-hover:text-teal-100 transition-colors mb-4">
+          <h3 className="text-base sm:text-lg font-light tracking-wide text-emerald-100 group-hover:text-teal-100 transition-colors mb-2">
             {project.title}
           </h3>
 
-          <p className="text-narrative text-sm text-emerald-200/70 group-hover:text-teal-200/80 leading-relaxed mb-8 flex-grow transition-colors">
+          <p className="text-narrative text-sm text-emerald-200/70 group-hover:text-teal-200/80 leading-relaxed mb-3 flex-grow transition-colors">
             {project.description}
           </p>
 
           {/* Tech stack */}
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="flex flex-wrap gap-1.5 mb-3">
             {project.tech.map((t) => (
               <span
                 key={t}

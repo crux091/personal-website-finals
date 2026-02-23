@@ -124,30 +124,30 @@ export default function Contact() {
 
       <div className="relative z-10">
         <RepeatInView variants={fadeUp} transition={transition} delay={0.05}>
-          <div className="text-center mb-16">
-            <h2 className="text-ui text-orange-200 mb-2 text-3xl font-light tracking-wider">Signal Transmission</h2>
+          <div className="text-center mb-4 sm:mb-6">
+            <h2 className="text-ui text-orange-200 mb-1 text-xl sm:text-2xl md:text-3xl font-light tracking-wider">Signal Transmission</h2>
             <p className="text-narrative text-rose-300/70 italic max-w-xl mx-auto">
               Initiate contact across the digital expanse.
             </p>
           </div>
         </RepeatInView>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {/* Contact info */}
           <RepeatInView variants={fadeIn} transition={transition} delay={0.18}>
             <div className="space-y-6">
-              <div className="glass-card p-10 bg-gradient-to-br from-orange-500/10 via-rose-500/5 to-orange-500/10 border-orange-400/20 backdrop-blur-sm">
-                <h3 className="text-xl font-light text-orange-100 mb-6">Established Channels</h3>
-                <p className="text-narrative text-rose-200/70 leading-relaxed mb-10">
+              <div className="glass-card p-4 sm:p-6 bg-gradient-to-br from-orange-500/10 via-rose-500/5 to-orange-500/10 border-orange-400/20 backdrop-blur-sm">
+                <h3 className="text-base sm:text-lg font-light text-orange-100 mb-3">Established Channels</h3>
+                <p className="text-narrative text-rose-200/70 leading-relaxed mb-4 text-sm">
                   I remain receptive to creative collaborations, experimental projects, and architecting new visions.
                 </p>
 
-                <div className="space-y-6">
+                <div className="space-y-3">
                   {contactMethods.map((method, idx) => (
                     <motion.div
                       key={idx}
                       whileHover={{ x: 4 }}
-                      className="flex items-center gap-6 group"
+                      className="flex items-center gap-3 group"
                     >
                       <div className="text-white/20 group-hover:text-primary-400 transition-colors duration-700">{method.icon}</div>
                       <div className="flex-1">
@@ -170,16 +170,16 @@ export default function Contact() {
 
           {/* Contact form */}
           <RepeatInView variants={fadeIn} transition={transition} delay={0.28}>
-            <form ref={form} onSubmit={handleSubmit} className="glass-card p-10 space-y-8 bg-white/[0.01] border-white/5">
+            <form ref={form} onSubmit={handleSubmit} className="glass-card p-4 sm:p-6 space-y-3 bg-white/[0.01] border-white/5">
               <div>
-                <label htmlFor="user_name" className="text-ui block mb-4">
+                <label htmlFor="user_name" className="text-ui block mb-2">
                   Identification
                 </label>
                 <input
                   name="user_name"
                   id="user_name"
                   type="text"
-                  className="w-full px-6 py-4 rounded-full bg-white/[0.03] border border-white/5 text-white placeholder-white/20 focus:border-white/20 focus:outline-none transition-all text-sm tracking-wide"
+                  className="w-full px-4 py-2 rounded-full bg-white/[0.03] border border-white/5 text-white placeholder-white/20 focus:border-white/20 focus:outline-none transition-all text-sm tracking-wide"
                   placeholder="Your Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -190,14 +190,14 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="user_email" className="text-ui block mb-4">
+                <label htmlFor="user_email" className="text-ui block mb-2">
                   Signal Coordinates
                 </label>
                 <input
                   name="user_email"
                   id="user_email"
                   type="email"
-                  className="w-full px-6 py-4 rounded-full bg-white/[0.03] border border-white/5 text-white placeholder-white/20 focus:border-white/20 focus:outline-none transition-all text-sm tracking-wide"
+                  className="w-full px-4 py-2 rounded-full bg-white/[0.03] border border-white/5 text-white placeholder-white/20 focus:border-white/20 focus:outline-none transition-all text-sm tracking-wide"
                   placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -208,14 +208,14 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="message" className="text-ui block mb-4">
+                <label htmlFor="message" className="text-ui block mb-2">
                   Transmission
                 </label>
                 <textarea
                   name="message"
                   id="message"
-                  rows={5}
-                  className="w-full px-6 py-4 rounded-[2rem] bg-white/[0.03] border border-white/5 text-white placeholder-white/20 focus:border-white/20 focus:outline-none transition-all text-sm tracking-wide resize-none"
+                  rows={3}
+                  className="w-full px-4 py-2 rounded-[2rem] bg-white/[0.03] border border-white/5 text-white placeholder-white/20 focus:border-white/20 focus:outline-none transition-all text-sm tracking-wide resize-none"
                   placeholder="Your message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
@@ -225,7 +225,7 @@ export default function Contact() {
                 {errors.message && <div className="text-[10px] text-red-400/60 mt-2 uppercase tracking-widest">{errors.message}</div>}
               </div>
 
-              <div className="flex items-center pt-4">
+              <div className="flex items-center pt-1">
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full">
                   <button
                     type="submit"

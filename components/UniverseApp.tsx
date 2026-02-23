@@ -6,7 +6,7 @@
 
 'use client'
 
-import { memo, Suspense } from 'react'
+import { memo, Suspense, useEffect, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { useUniverseStore } from '@/store/useUniverseStore'
 import dynamic from 'next/dynamic'
@@ -23,6 +23,14 @@ const GuestbookPanel = dynamic(() => import('@/components/ui/GuestbookPanel').th
 
 const UniverseApp = memo(function UniverseApp() {
   const { stage, zodiacSign, activeNode, setActiveNode, openGuestbook } = useUniverseStore()
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
 
   const handleNodeClick = (nodeId: string) => {
     // Special handling for guestbook node
@@ -42,7 +50,7 @@ const UniverseApp = memo(function UniverseApp() {
   return (
     <div className="fixed inset-0 bg-black text-white overflow-hidden select-none">
       {/* Layer 0: Background */}
-      <Starfield starCount={200} parallaxStrength={0} driftSpeed={0.5} />
+      <Starfield starCount={isMobile ? 80 : 200} parallaxStrength={0} driftSpeed={0.5} />
 
       {/* Layer 1: Application Flow */}
       <Suspense fallback={<div className="fixed inset-0 bg-black" />}>

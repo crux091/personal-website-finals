@@ -16,8 +16,8 @@ export default function Projects() {
 
       <div className="relative z-10">
         <RepeatInView variants={fadeUp} transition={transition} delay={0.1}>
-          <div className="text-center mb-16">
-            <h2 className="text-ui text-emerald-200 mb-2 text-3xl font-light tracking-wider">Constellation of Work</h2>
+          <div className="text-center mb-4 sm:mb-6">
+            <h2 className="text-ui text-emerald-200 mb-1 text-xl sm:text-2xl md:text-3xl font-light tracking-wider">Constellation of Work</h2>
             <p className="text-narrative text-teal-300/70 italic max-w-xl mx-auto">
               A record of manifestations in the digital void.
             </p>
@@ -25,7 +25,7 @@ export default function Projects() {
         </RepeatInView>
 
         <RepeatInView variants={fadeIn} transition={transition} delay={0.25}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {projects.map((p) => (
               <ProjectCard key={p.id} project={p} />
             ))}
@@ -34,7 +34,7 @@ export default function Projects() {
 
         {/* CTA for more projects */}
         <RepeatInView variants={fadeUp} transition={transition} delay={0.45}>
-          <div className="mt-20 text-center">
+          <div className="mt-3 sm:mt-5 text-center">
             <a
               href="https://github.com/crux091"
               target="_blank"

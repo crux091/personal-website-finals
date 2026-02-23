@@ -27,29 +27,29 @@ export default function Skills() {
 
       <div className="relative z-10">
         <RepeatInView variants={fadeUp} transition={transition} delay={0.15}>
-          <div className="text-center mb-16">
-            <h2 className="text-ui text-purple-200 mb-2 text-3xl font-light tracking-wider">Technical Archetypes</h2>
+          <div className="text-center mb-4 sm:mb-6">
+            <h2 className="text-ui text-purple-200 mb-1 text-xl sm:text-2xl md:text-3xl font-light tracking-wider">Technical Archetypes</h2>
             <p className="text-narrative text-pink-300/70 italic max-w-xl mx-auto">
               Instruments and conduits utilized in the digital realm.
             </p>
           </div>
         </RepeatInView>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4">
           {skills.map(({ name, icon: Icon }, idx) => (
             <RepeatInView key={name} variants={fadeUp} transition={transition} delay={0.1 + idx * 0.05}>
               <motion.div
                 whileHover={{ y: -6 }}
-                className="glass-card p-8 group cursor-default relative overflow-hidden bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-purple-500/10 border-purple-400/20 hover:border-pink-400/40 transition-all duration-500 backdrop-blur-sm"
+                className="glass-card p-3 sm:p-5 group cursor-default relative overflow-hidden bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-purple-500/10 border-purple-400/20 hover:border-pink-400/40 transition-all duration-500 backdrop-blur-sm"
               >
                 {/* Subtle depth flare */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 bg-gradient-to-br from-purple-400/10 to-pink-400/10 pointer-events-none" />
 
-                <div className="relative flex flex-col items-center gap-6 text-center">
+                <div className="relative flex flex-col items-center gap-2 sm:gap-3 text-center">
                   {/* Icon container */}
                   <div className="relative">
-                    <div className="relative h-14 w-14 grid place-items-center rounded-full bg-purple-500/10 border border-purple-400/20 group-hover:bg-pink-500/20 group-hover:border-pink-400/30 transition-all duration-1000 group-hover:shadow-lg group-hover:shadow-pink-500/20">
-                      <Icon size={24} className="text-purple-300/70 group-hover:text-pink-200 transition-colors duration-1000" />
+                    <div className="relative h-10 w-10 sm:h-12 sm:w-12 grid place-items-center rounded-full bg-purple-500/10 border border-purple-400/20 group-hover:bg-pink-500/20 group-hover:border-pink-400/30 transition-all duration-1000 group-hover:shadow-lg group-hover:shadow-pink-500/20">
+                      <Icon size={20} className="text-purple-300/70 group-hover:text-pink-200 transition-colors duration-1000" />
                     </div>
                   </div>
 

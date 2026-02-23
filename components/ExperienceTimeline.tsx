@@ -33,8 +33,8 @@ export default function ExperienceTimeline() {
 
       <div className="relative z-10">
         <RepeatInView variants={fadeUp} transition={transition} delay={0.05}>
-          <div className="text-center mb-16">
-            <h2 className="text-ui text-indigo-200 mb-2 text-3xl font-light tracking-wider">The Journey</h2>
+          <div className="text-center mb-4 sm:mb-8">
+            <h2 className="text-ui text-indigo-200 mb-1 text-xl sm:text-2xl md:text-3xl font-light tracking-wider">The Journey</h2>
             <p className="text-narrative text-violet-300/70 italic max-w-xl mx-auto">
               Charting the course of technical evolution and discovery.
             </p>
@@ -45,7 +45,7 @@ export default function ExperienceTimeline() {
           {/* Vertical line */}
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-400/50 via-violet-500/30 to-transparent" aria-hidden />
 
-          <ul className="space-y-12">
+          <ul className="space-y-4 sm:space-y-8">
             {experience.map((item, idx) => (
               <li key={idx} className="relative">
                 <RepeatInView variants={fadeUp} transition={transition} delay={0.1 + idx * 0.15}>
@@ -61,19 +61,19 @@ export default function ExperienceTimeline() {
                     <div className={`${idx % 2 === 0 ? 'md:pl-12' : 'md:pr-12'} ml-16 md:ml-0`}>
                       <motion.div
                         whileHover={{ y: -4 }}
-                        className="glass-card p-8 relative group border-indigo-400/20 bg-gradient-to-br from-indigo-500/10 via-violet-500/5 to-indigo-500/10 hover:border-violet-400/30 transition-all backdrop-blur-sm"
+                        className="glass-card p-4 sm:p-6 relative group border-indigo-400/20 bg-gradient-to-br from-indigo-500/10 via-violet-500/5 to-indigo-500/10 hover:border-violet-400/30 transition-all backdrop-blur-sm"
                       >
                         <div className="relative">
                           {/* Mobile period */}
-                          <div className="md:hidden text-ui text-indigo-300 mb-4">{item.period}</div>
+                          <div className="md:hidden text-ui text-indigo-300 mb-2">{item.period}</div>
 
-                          <h3 className="text-2xl font-light tracking-wide text-indigo-100 group-hover:text-violet-100 transition-colors mb-2">{item.role}</h3>
+                          <h3 className="text-lg sm:text-xl font-light tracking-wide text-indigo-100 group-hover:text-violet-100 transition-colors mb-1">{item.role}</h3>
                           {item.org && (
-                            <div className="text-ui text-indigo-300 opacity-80 group-hover:text-violet-300 transition-colors mb-4">{item.org}</div>
+                            <div className="text-ui text-indigo-300 opacity-80 group-hover:text-violet-300 transition-colors mb-2">{item.org}</div>
                           )}
 
                           {item.summary && (
-                            <p className="text-narrative text-indigo-200/70 group-hover:text-violet-200/80 transition-colors mb-6 leading-relaxed">{item.summary}</p>
+                            <p className="text-narrative text-indigo-200/70 group-hover:text-violet-200/80 transition-colors mb-3 leading-relaxed text-sm">{item.summary}</p>
                           )}
 
                           {item.tech && item.tech.length > 0 && (

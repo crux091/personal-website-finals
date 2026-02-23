@@ -18,6 +18,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: radial-gradient(circle at center, #0a0a1a 0%, #000000 100%);
   overflow: hidden;
+  /* Mobile: prevent tap highlight flash */
+  -webkit-tap-highlight-color: transparent;
+  /* Mobile: prevent text size auto-adjust on rotation */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Mobile: smoother touch scrolling */
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+/* Mobile: fast tap response on all interactive elements */
+button, a, [role="button"] {
+  touch-action: manipulation;
+}
+
+/* Mobile: fix iOS date input color */
+input[type="date"] {
+  color-scheme: dark;
 }
 
 .container {
