@@ -8,7 +8,6 @@
 import { useState, useEffect, FormEvent, memo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useUniverseStore } from '@/store/useUniverseStore'
-import { createComment } from '@/lib/supabase/comments'
 import type { Comment } from '@/types/comment'
 
 const MAX_NAME_LENGTH = 100
@@ -50,7 +49,16 @@ export function GuestbookPanel() {
 
     setSubmitting(true)
     try {
-      const newComment = await createComment(trimmedName, trimmedMessage)
+      const res = await fetch('/api/guestbook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: trimmedName, message: trimmedMessage }),
+      })
+      if (!res.ok) {
+        const data = await res.json()
+        throw new Error(data.error || 'Failed to submit comment')
+      }
+      const newComment: Comment = await res.json()
       addCommentOptimistic(newComment)
       setName('')
       setMessage('')

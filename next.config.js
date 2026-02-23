@@ -4,6 +4,37 @@ const nextConfig = {
   swcMinify: true,
   poweredByHeader: false,
   compress: true,
+  experimental: {
+    swcPlugins: [],
+  },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      // Nest.js optional peer deps not needed in a serverless context
+      const nestExternals = [
+        '@nestjs/websockets/socket-module',
+        '@nestjs/websockets',
+        '@nestjs/microservices/microservices-module',
+        '@nestjs/microservices',
+        'cache-manager',
+        'class-transformer/storage',
+        'fastify',
+        '@fastify/static',
+        '@fastify/view',
+        'nats',
+        'mqtt',
+        'amqplib',
+        'amqp-connection-manager',
+        '@grpc/grpc-js',
+        '@grpc/proto-loader',
+        'kafkajs',
+        'ioredis',
+        'redis',
+        'file-type',
+      ]
+      config.externals = [...(config.externals || []), ...nestExternals]
+    }
+    return config
+  },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },

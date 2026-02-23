@@ -8,7 +8,6 @@ import { ZodiacSign, AppStage } from '@/types'
 import type { Comment } from '@/types/comment'
 import type { RealtimeChannel } from '@supabase/supabase-js'
 import {
-  fetchComments,
   subscribeToRealtimeComments,
   unsubscribeFromRealtimeComments,
 } from '@/lib/supabase/comments'
@@ -107,7 +106,9 @@ export const useUniverseStore = create<UniverseState>((set, get) => ({
   loadComments: async () => {
     set({ commentsLoading: true })
     try {
-      const comments = await fetchComments(20)
+      const res = await fetch('/api/guestbook')
+      if (!res.ok) throw new Error('Failed to fetch comments')
+      const comments = await res.json()
       set({ comments, commentsLoading: false })
     } catch (error) {
       console.error('Failed to load comments:', error)
